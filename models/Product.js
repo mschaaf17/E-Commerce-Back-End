@@ -11,6 +11,7 @@ Product.init(
   {
     id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
@@ -19,17 +20,23 @@ Product.init(
       allowNull: false
     },
     price: {
-      type: DataTypes.DECIMAL,
+      //decimal instad of integer?
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     stock: {
-    type: DataTypes.STRING,
-    allowNull: false
-    },
-    category_id: {
     type: DataTypes.INTEGER,
     allowNull: false
-  },
+    },
+    //foreign key
+    category_id: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: 'category',
+      key: 'id'
+    }
+  }
+  //also as a category name?
   //extend to the category_name and id nested in a object called category
   },
   {

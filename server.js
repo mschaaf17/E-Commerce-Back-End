@@ -9,9 +9,18 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//turn on the routes
 app.use(routes);
 
+
+//turn o connect to db and server
 // sync sequelize models to the database, then turn on the server
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}!`);
-});
+sequelize.sync({ force: false }).then(() => {
+app.listen(PORT, () => console.log('Now listening'))
+})
+
+
+//code provided
+// app.listen(PORT, () => {
+//   console.log(`App listening on port ${PORT}!`);
+// });

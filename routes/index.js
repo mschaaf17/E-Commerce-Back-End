@@ -1,3 +1,4 @@
+//is the router so that we dont have to initalize express in each module?
 const router = require('express').Router();
 const apiRoutes = require('./api');
 

@@ -9,6 +9,7 @@ Category.init(
     // define columns
     id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
@@ -16,40 +17,44 @@ Category.init(
       type: DataTypes.STRING,
       allowNull: false
     },
+    //how do I set up an array of objects?
     products: [
-      //example is in an object in insomia but post,js is outside of an object and only in an array
-      //if its in the object {} it may need the datatypes information  
-        
-        'id',
-        'product_name',
-        'price',
-        'stock',
-        'category_id'
-    
-    ]
-//or do this! but these sections are part of the product init and since we are connecting them?
-//     id: {
-//       type: DataTypes.INTEGER,
-//       primaryKey: true,
-//       autoIncrement: true
-//     },
-//     product_name: {
-//       type: DataTypes.STRING,
-//       allowNull: false
-//     },
-//     price: {
-//       type: DataTypes.DECIMAL,
-//       allowNull: false
-//     },
-//     stock: {
-//     type: DataTypes.STRING,
-//     allowNull: false
-//     },
-//     category_id: {
-//     type: DataTypes.INTEGER,
-//     allowNull: false
-// }
-  },
+    {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'product',
+        key: 'id'
+      }
+    },
+    {
+      type: DataTypes.STRING,
+      references: {
+        model: 'product',
+        key: 'product_name'
+      }
+    },
+    {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'product',
+        key: 'price'
+      }
+    },
+    {
+      type: DataTypes.INTEGER,
+      refereces: {
+        model: 'product',
+        key: 'stock'
+      }
+    },
+    {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'category',
+        key: 'id'
+      }
+    }
+  ],
   {
     sequelize,
     timestamps: false,
