@@ -20,13 +20,15 @@ Product.init(
       allowNull: false
     },
     price: {
-      //decimal instad of integer?
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL,
       allowNull: false
+      //validate this as a decimal
     },
     stock: {
     type: DataTypes.INTEGER,
     allowNull: false
+    //default vale of 10
+    //validates that the value is numeric
     },
     //foreign key
     category_id: {
@@ -36,9 +38,8 @@ Product.init(
       key: 'id'
     }
   }
-  //also as a category name?
-  //extend to the category_name and id nested in a object called category
   },
+  
   {
     sequelize,
     timestamps: false,

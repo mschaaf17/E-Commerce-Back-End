@@ -16,45 +16,45 @@ Category.init(
     category_name: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    //how do I set up an array of objects?
-    products: [
-    {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'product',
-        key: 'id'
-      }
-    },
-    {
-      type: DataTypes.STRING,
-      references: {
-        model: 'product',
-        key: 'product_name'
-      }
-    },
-    {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'product',
-        key: 'price'
-      }
-    },
-    {
-      type: DataTypes.INTEGER,
-      refereces: {
-        model: 'product',
-        key: 'stock'
-      }
-    },
-    {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'category',
-        key: 'id'
-      }
     }
-  ],
+    //how do I set up an array of objects for products??
+    // products: {
+    // product_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'product',
+    //     key: 'id'
+    //   }
+    // },
+    // product_name: {
+    //   type: DataTypes.STRING,
+    //   references: {
+    //     model: 'product',
+    //     key: 'product_name'
+    //   }
+   // },
+  //   product_price: {
+  //     type: DataTypes.INTEGER,
+  //     references: {
+  //       model: 'product',
+  //       key: 'price'
+  //     }
+  //   },
+  //  product_stock: {
+  //     type: DataTypes.INTEGER,
+  //     refereces: {
+  //       model: 'product',
+  //       key: 'stock'
+  //     }
+  //   },
+  //   category_id: {
+  //     type: DataTypes.INTEGER,
+  //     references: {
+  //       model: 'category',
+  //       key: 'id'
+  //     }
+  //   }
+    },
   {
     sequelize,
     timestamps: false,
