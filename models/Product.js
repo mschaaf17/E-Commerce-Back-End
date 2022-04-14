@@ -20,17 +20,18 @@ Product.init(
       allowNull: false
     },
     price: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(10,2),
       allowNull: false
-      //validate this as a decimal
     },
     stock: {
     type: DataTypes.INTEGER,
-    allowNull: false
-    //default vale of 10
-    //validates that the value is numeric
+    allowNull: false,
+    defaultValue: 10,
+    validate: {
+      isNumeric: true
+    }
     },
-    //foreign key
+  //  foreign key
     category_id: {
     type: DataTypes.INTEGER,
     references: {
